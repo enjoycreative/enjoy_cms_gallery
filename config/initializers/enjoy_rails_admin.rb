@@ -1,4 +1,4 @@
-  Enjoy.rails_admin_configure do |config|
+Enjoy.rails_admin_configure do |config|
   config.action_visible_for :nested_set, 'Enjoy::Gallery::Gallery'
   config.action_visible_for :nested_set, 'Enjoy::Gallery::Image'
 
