@@ -9,7 +9,7 @@ Gem::Specification.new do |spec|
   spec.authors       = ["Alexander Kiseliev"]
   spec.email         = ["dev@enjoycreate.ru"]
 
-  spec.description   = %q{enjoy_cms_gallery }
+  spec.description   = %q{enjoy_cms_gallery}
   spec.summary       = %q{enjoy_cms_gallery}
   spec.homepage      = 'https://github.com/enjoycreative/enjoy_cms_gallery'
   spec.license       = "MIT"
