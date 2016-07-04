@@ -49,14 +49,3 @@ if defined?(RailsAdmin)
     config.excluded_models.flatten!
   end
 end
-#
-# meta_arr = [arr1, arr2]
-# meta_arr.each_with_index do |arr, counter|
-#   arr.each do |data|
-#     res_arr[data[:name]] ||= {}
-#     meta_arr.count.times do |c|
-#       res_arr[data[:name]]["count#{c+1}".to_sym] = 0
-#     end
-#     res_arr[data[:name]]["count#{counter+1}".to_sym] = data[:count]
-#   end
-# end

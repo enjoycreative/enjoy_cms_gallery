@@ -1,5 +1,13 @@
+.idea
+.idea/*
+
+*.gem
+*.rbc
+
 /.bundle/
+.config
 /.yardoc
+InstalledFiles
 /Gemfile.lock
 /_yardoc/
 /coverage/

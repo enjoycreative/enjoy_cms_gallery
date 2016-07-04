@@ -5,6 +5,8 @@ module Enjoy::Gallery::LoadGalleryImages
   def enjoy_gallery_render_gallery_images
     @gallery_images = enjoy_gallery_load_gallery_images
 
+    @next_page = (params[:page] || 1).to_i + 1
+
     render_opts = {
       layout:   enjoy_gallery_gallery_images_layout,
       action:   enjoy_gallery_gallery_images_action,

@@ -10,18 +10,22 @@ if Enjoy.active_record?
         unless opts.blank?
           content_type = opts.delete(:content_type)
           jcrop_options = opts.delete(:jcrop_options)
+          is_image = opts.delete(:is_image)
+          is_image = true if is_image.nil?
         end
 
-        opts[:processors] ||= []
-        opts[:processors] << :paperclip_optimizer
-        opts[:processors].flatten!
-        opts[:processors].uniq!
+        if is_image
+          opts[:processors] ||= []
+          opts[:processors] << :paperclip_optimizer
+          opts[:processors].flatten!
+          opts[:processors].uniq!
 
-        opts[:convert_options] = {all: "-quality 75 -strip"} if opts[:convert_options].blank?
+          opts[:convert_options] = {all: "-quality 75 -strip"} if opts[:convert_options].blank?
+        end
 
         has_attached_file name, opts
         # validates_attachment name, content_type: content_type unless content_type.blank?
-        validates_attachment_content_type name, content_type: /\Aimage\/.*\Z/, if: 'name?'
+        validates_attachment_content_type name, content_type: /\Aimage\/.*\Z/ if is_image
         class_eval <<-EVAL
           def #{name}_file_name=(val)
             return self[:#{name}_file_name] = ""  if val == ""

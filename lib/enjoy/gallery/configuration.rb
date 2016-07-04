@@ -15,7 +15,7 @@ module Enjoy::Gallery
     attr_accessor :localize
 
     def initialize
-      @can_connect_category_with_pages = Enjoy.config.localize
+      @localize = Enjoy.config.localize
     end
   end
 end
