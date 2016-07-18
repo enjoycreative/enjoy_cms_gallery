@@ -2,13 +2,10 @@ module Enjoy::Gallery
   module Admin
     module EmbeddedImage
       def self.config(fields = {})
-        jcrop_proc = Proc.new do
-          jcrop_options :image_jcrop_options
-        end
 
         if fields
           if fields.is_a?(Hash)
-            fields.reverse_merge!({image: [:jcrop, jcrop_proc]})
+            fields.reverse_merge!({image: :enjoy_image})
           else
             finded = false
             fields.each { |g|
@@ -18,7 +15,7 @@ module Enjoy::Gallery
               fields << {
                 name: :image,
                 fields: {
-                  image: [:jcrop, jcrop_proc]
+                  image: :enjoy_image
                 }
               }
             end

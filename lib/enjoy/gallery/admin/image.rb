@@ -15,9 +15,7 @@ module Enjoy::Gallery
           field :name, :string do
             searchable true
           end
-          field :image, :jcrop do
-            jcrop_options :image_jcrop_options
-          end
+          field :image, :enjoy_image
 
           nested_set({max_depth: 1, scopes: []})
 

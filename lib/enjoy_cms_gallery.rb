@@ -18,6 +18,8 @@ require "paperclip-optimizer"
 
 require "ack_rails_admin_jcrop"
 
+require "enjoy/gallery/rails_admin_ext/enjoy_image"
+
 require 'enjoy/gallery/configuration'
 require 'enjoy/gallery/engine'
 

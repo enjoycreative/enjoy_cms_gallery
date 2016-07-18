@@ -42,6 +42,18 @@ if Enjoy.mongoid?
             self.#{name}.processors << p_o if p_o
             true
           end
+
+          def #{name}_svg?
+            #{name}_content_type =~ /svg/
+          end
+
+          def #{name}_url(opts)
+            if #{name}_svg?
+              #{name}.url
+            else
+              #{name}.url(opts)
+            end
+          end
         EVAL
         jcrop_options ||= {}
         if jcrop_options
