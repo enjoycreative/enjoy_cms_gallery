@@ -8,6 +8,7 @@ if Enjoy.mongoid?
       def enjoy_cms_mongoid_attached_file(name, opts = {})
         name = name.to_sym
         is_image = true
+        styles_method_name = nil
         unless opts.blank?
           content_type = opts.delete(:content_type)
           jcrop_options = opts.delete(:jcrop_options)
@@ -22,11 +23,17 @@ if Enjoy.mongoid?
           opts[:processors].uniq!
 
           opts[:convert_options] = {all: "-quality 75 -strip"} if opts[:convert_options].blank?
+
+          if opts[:styles].blank?
+            styles_method_name = "#{name}_styles"
+            opts[:styles] = lambda { |attachment| attachment.instance.send(styles_method_name) }
+          end
         end
 
         has_mongoid_attached_file name, opts
         # validates_attachment name, content_type: content_type unless content_type.blank?
         validates_attachment_content_type name, content_type: /\Aimage\/.*\Z/ if is_image
+
         class_eval <<-EVAL
           def #{name}_file_name=(val)
             return self[:#{name}_file_name] = ""  if val == ""
@@ -63,6 +70,14 @@ if Enjoy.mongoid?
             end
           EVAL
         end
+        if styles_method_name
+          class_eval <<-EVAL
+            def #{styles_method_name}
+              {}
+            end
+          EVAL
+        end
+
       end
     end
   end

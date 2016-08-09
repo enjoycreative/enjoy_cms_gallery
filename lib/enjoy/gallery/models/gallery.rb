@@ -17,19 +17,9 @@ module Enjoy::Gallery
 
         acts_as_nested_set
 
-        enjoy_cms_attached_file(:image,
-                  styles: lambda { |attachment| attachment.instance.image_styles }
-        )
+        enjoy_cms_attached_file(:image)
 
         # has_many :connected_objects, as: :enjoy_gallerable
-      end
-
-      def image_jcrop_options
-        {}
-      end
-
-      def image_styles
-        {}
       end
     end
   end

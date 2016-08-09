@@ -5,9 +5,6 @@ module Enjoy::Gallery
         extend ActiveSupport::Concern
 
         included do
-          if defined?(RailsAdminComments)
-            include RailsAdminComments::Commentable
-          end
           field :name, type: String, localize: Enjoy::Gallery.configuration.localize
 
           scope :sorted, -> { order_by([:lft, :asc]) }

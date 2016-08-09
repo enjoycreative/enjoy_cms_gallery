@@ -8,17 +8,7 @@ module Enjoy::Gallery
         include Enjoy::Gallery.orm_specific('EmbeddedImage')
 
         included do
-          enjoy_cms_attached_file(:image,
-                    styles: lambda { |attachment| attachment.instance.image_styles }
-          )
-        end
-
-        def image_jcrop_options
-          {}
-        end
-
-        def image_styles
-          {}
+          enjoy_cms_attached_file(:image)
         end
       end
     end

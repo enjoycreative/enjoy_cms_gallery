@@ -13,17 +13,7 @@ module Enjoy::Gallery
 
         acts_as_nested_set
 
-        enjoy_cms_attached_file(:image,
-                  styles: lambda { |attachment| attachment.instance.image_styles }
-        )
-      end
-
-      def image_jcrop_options
-        {}
-      end
-
-      def image_styles
-        {}
+        enjoy_cms_attached_file(:image)
       end
     end
   end
