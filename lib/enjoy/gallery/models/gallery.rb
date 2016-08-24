@@ -20,7 +20,12 @@ module Enjoy::Gallery
         enjoy_cms_attached_file(:image)
 
         # has_many :connected_objects, as: :enjoy_gallerable
+
+        after_save do
+          auto_rails_admin_jcrop(:image)
+        end
       end
+      
     end
   end
 end

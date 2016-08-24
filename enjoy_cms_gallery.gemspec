@@ -7,7 +7,7 @@ Gem::Specification.new do |spec|
   spec.name          = "enjoy_cms_gallery"
   spec.version       = Enjoy::Gallery::VERSION
   spec.authors       = ["Alexander Kiseliev"]
-  spec.email         = ["dev@enjoycreate.ru"]
+  spec.email         = ["i43ack@gmail.com"]
 
   spec.description   = %q{enjoy_cms_gallery}
   spec.summary       = %q{enjoy_cms_gallery}
@@ -30,7 +30,7 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency "bundler", "~> 1.10"
   spec.add_development_dependency "rake", "~> 10.0"
 
-  spec.add_dependency 'enjoy_cms', "~> 0.4.0"
+  spec.add_dependency 'enjoy_cms', "~> 0.4.1"
 
   spec.add_dependency "paperclip"
   spec.add_dependency 'glebtv-mongoid-paperclip'

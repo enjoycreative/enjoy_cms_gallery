@@ -9,7 +9,12 @@ module Enjoy::Gallery
 
         included do
           enjoy_cms_attached_file(:image)
+
+          after_save do
+            auto_rails_admin_jcrop(:image)
+          end
         end
+        
       end
     end
   end

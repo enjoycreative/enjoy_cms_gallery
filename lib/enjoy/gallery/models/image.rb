@@ -14,7 +14,12 @@ module Enjoy::Gallery
         acts_as_nested_set
 
         enjoy_cms_attached_file(:image)
+
+        after_save do
+          auto_rails_admin_jcrop(:image)
+        end
       end
+      
     end
   end
 end
